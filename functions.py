@@ -11,9 +11,10 @@ def evaluate_candidate(jd_text):
         return "Job description text cannot be empty."
 
     messages = [
-        {"role": "system", "content": "You are a career advisor."},
-        {"role": "user", "content": f"Please evaluate the following Candidate for clarity, completeness, and quality:\n\n{jd_text}\n\nProvide feedback and suggestions for improvement. Also, suggest a suitable career path, summarize their weaknesses, and recommend improvements along with the recommended career path."}
-    ]
+    {"role": "system", "content": "You are a career advisor."},
+    {"role": "user", "content": f"Please evaluate and improve the following job description based on the given criteria: Clarity, Inclusivity, Relevance, Structure, Company Branding, Performance Indicators, and Engagement. Additionally, provide a detailed breakdown of key components for an ideal job description:\n\n{jd_text}\n\nThe detailed breakdown includes Job Title, Job Summary, Key Responsibilities, Required Qualifications, Preferred Qualifications, Work Environment and Physical Demands, Company Overview, Compensation and Benefits, Location, and Application Process."}
+]
+
 
     try:
         response = openai.ChatCompletion.create(
@@ -27,6 +28,6 @@ def evaluate_candidate(jd_text):
         return f"An error occurred: {e}"
 
 if __name__ == "__main__":
-    resume_text = "A data scienctist from bangalore with 5 years of experience in machine learning and deep learning."
-    feedback = evaluate_candidate(resume_text)
+    job_text = "A data scienctist from bangalore with 5 years of experience in machine learning and deep learning."
+    feedback = evaluate_candidate(job_text)
     print(feedback)
