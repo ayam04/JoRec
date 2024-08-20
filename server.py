@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
 from functions import evaluate_candidate
 from pydantic import BaseModel
 import uvicorn
