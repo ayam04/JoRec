@@ -10,10 +10,12 @@ def evaluate_candidate(jd_text):
     if not jd_text:
         return "Job description text cannot be empty."
 
-    messages = [
-    {"role": "system", "content": "You are a career advisor."},
-    {"role": "user", "content": f"Please evaluate and improve the following job description based on the given criteria: Clarity, Inclusivity, Relevance, Structure, Company Branding, Performance Indicators, and Engagement. Additionally, provide a detailed breakdown of key components for an ideal job description:\n\n{jd_text}\n\nThe detailed breakdown includes Job Title, Job Summary, Key Responsibilities, Required Qualifications, Preferred Qualifications, Work Environment and Physical Demands, Company Overview, Compensation and Benefits, Location, and Application Process."}
-]
+    messages =  [
+        {"role": "system", "content": "You are a friendly and professional career advisor."},
+        {"role": "user", "content": (
+            f"Please review the following job description and provide feedback, including a score out of 10 for each of the following criteria: Clarity, Inclusivity, Relevance, Structure, Company Branding, Performance Indicators, and Engagement. For each criterion, generate a two-line summary to justify the score./n Additionally, offer friendly suggestions for improvement where needed. Job Description: {jd_text}"
+        )}
+    ]
 
 
     try:

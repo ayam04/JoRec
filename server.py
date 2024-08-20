@@ -4,9 +4,9 @@ import uvicorn
 
 app = FastAPI()
 
-@app.post("/suggest-candidate")
+@app.post("/suggest-jd")
 async def suggest_candidate(resume_text: str = Query(...)):
-    return evaluate_candidate(resume_text)
+    return {'output': evaluate_candidate(resume_text)}
 
 if __name__ == "__main__":
     uvicorn.run(app, host=8080)
